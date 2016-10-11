@@ -1,7 +1,7 @@
 {
   "name": "game-time-starter-kit",
   "version": "1.0.0",
-  "description": "A starter kit for Turing School's Game Time project.",
+  "description": "An awesome game.",
   "main": "index.js",
   "scripts": {
     "start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/turingschool-examples/game-time-starter-kit.git"
+    "url": ""
   },
-  "author": "Steve Kinney",
+  "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/turingschool-examples/game-time-starter-kit/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/turingschool-examples/game-time-starter-kit",
+  "homepage": "",
   "devDependencies": {
     "babel": "^6.5.2",
     "babel-core": "^6.11.4",
