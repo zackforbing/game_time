@@ -1,14 +1,8 @@
-const chai = require('chai');
+const chai   = require('chai');
 const assert = chai.assert;
-
 const Player = require('../lib/player')
 
 describe('Player', function() {
-
-  // beforeEach(function() {
-  //   let player = new Player;
-  // });
-
   context('with default attributes', function() {
 
     it('should be instantiated', function() {
