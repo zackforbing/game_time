@@ -5,25 +5,48 @@ const stub     = require('./support/stub')
 
 describe('GameLoop', function() {
   context('with default attributes', function() {
-    var canvas = stub();
-    var context = stub().of("fillRect");
 
-    var game = new Game({ canvas: canvas, context: context });
+    it('has a canvas', function(){
+      var canvas = stub();
+      var context = stub().of("fillRect");
 
-    it.skip('has a canvas', function(){
-      assert.equal(game.canvas);
+      var game = new Game({ canvas: canvas, context: context });
+
+      assert.equal(game.canvas, canvas);
     });
 
-    it.skip('has a context', function(){
-      assert.equal(game.context);
+    it('has a context', function(){
+      var canvas = stub();
+      var context = stub().of("fillRect");
+
+      var game = new Game({ canvas: canvas, context: context });
+
+      assert.equal(game.context, context);
     });
 
-    it.skip('has a size', function(){
-      assert.equal(game.size);
+    it('has a size', function(){
+      var canvas = stub();
+          canvas.width  = 600;
+          canvas.height = 800;
+
+      var context = stub().of("fillRect");
+
+      var game = new Game({ canvas: canvas, context: context });
+
+      assert.equal(game.size.x, 600);
+      assert.equal(game.size.y, 800);
     });
 
-    it.skip('has a center', function(){
-      assert.equal(game.center);
+    it('has a center', function(){
+      var canvas = stub();
+      canvas.width  = 600;
+      canvas.height = 800;
+
+      var context = stub().of("fillRect");
+
+      var game = new Game({ canvas: canvas, context: context });
+      assert.equal(game.center.x, 300);
+      assert.equal(game.center.y, 400);
     });
   });
 });
