@@ -1,49 +1,76 @@
-const chai = require('chai');
+const chai   = require('chai');
 const assert = chai.assert;
-
-const Player = require('../lib/player')
+const Player = require('../lib/player');
+const stub   = require('./support/stub');
+const Game   = require('../lib/game')
 
 describe('Player', function() {
-
-  // beforeEach(function() {
-  //   let player = new Player;
-  // });
-
   context('with default attributes', function() {
 
     it('should be instantiated', function() {
-      let player = new Player;
+      var canvas = stub();
+      var context = stub().of("fillRect");
+      canvas.width  = 800;
+      canvas.height = 600;
 
-      assert.isObject(player);
+      var game = new Game({canvas: canvas, context: context});
+
+      let player = new Player(game);
+
+      assert.instanceOf(player, Player);
     })
 
     it('should have an x-coordinate', function() {
-      let player = new Player;
+      var canvas = stub();
+      var context = stub().of("fillRect");
+      canvas.width  = 800;
+      canvas.height = 600;
 
-      assert.equal(player.x, 0);
+      var game = new Game({canvas: canvas, context: context});
+      let player = new Player(game);
+
+      assert.equal(player.center.x, 400);
     })
 
     it('should have an y-coordinate', function() {
-      let player = new Player;
+      var canvas = stub();
+      var context = stub().of("fillRect");
+      canvas.width  = 800;
+      canvas.height = 600;
 
-      assert.equal(player.y, 0);
+      var game = new Game({canvas: canvas, context: context});
+      let player = new Player(game);
+
+      assert.equal(player.center.y, 300);
     })
 
     it('should have a height', function() {
-      let player = new Player;
+      var canvas = stub();
+      var context = stub().of("fillRect");
+      canvas.width  = 800;
+      canvas.height = 600;
 
-      assert.equal(player.height, 50);
+      var game = new Game({canvas: canvas, context: context});
+      let player = new Player(game);
+
+      assert.equal(player.size.x, 50);
     })
 
-    it.skip('should have a width', function() {
-      let player = new Player;
+    it('should have a width', function() {
+      var canvas = stub();
+      var context = stub().of("fillRect");
+      canvas.width  = 800;
+      canvas.height = 600;
 
-      assert.equal(player.width, 50);
+      var game = new Game({canvas: canvas, context: context});
+      let player = new Player(game);
+
+      assert.equal(player.size.y, 50);
     })
   });
 
   context('it can move', function() {
-    it('should be able to move left', function() {
+    it.skip('should be able to move left', function() {
       let player = new Player;
 
       assert.equal(player.x, 0);
