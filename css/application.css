@@ -1,0 +1,35 @@
+.greeting {
+  background-color: red;
+  position: fixed;
+
+  height: 100%;
+  width: 100%;
+}
+
+.game-position {
+  height: 1000px;
+  width: 1000px;
+  margin: auto;
+}
+
+.game-container {
+  display: inline-block;
+  margin-top: 100px;
+  margin-left: 200px;
+}
+
+.game-text-display {
+  width: 600px;
+  height: 800px;
+  background-color: red;
+  text-align: center;
+}
+
+#game-start {
+  padding: 20px;
+  font-style: 
+}
+
+#game-end {
+  padding: 20px;
+}
