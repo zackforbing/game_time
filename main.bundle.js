@@ -44,7 +44,6 @@
 /* 0 */
 /***/ function(module, exports) {
 
-	// require('./background')
 	// require('./player')
 
 	var canvas = document.getElementById('game');
