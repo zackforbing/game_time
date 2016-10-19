@@ -3,13 +3,22 @@
 <head>
   <meta charset="utf-8">
   <title>TimeFreeze</title>
+  <link rel="stylesheet" href="css/application.css" media="screen" title="no title">
 </head>
 <body>
-  <div class="game-container" style="margin-left: 100px; margin-top: 50px;">
-    <canvas id="game" width="600" height="800" style="border:1px solid #000000;"></canvas>
+  <div class="game-position">
+    <div class="game-container game-text-display" id="game-start">
+      <p class="game-text">
+        Press S To Start!
+      </p>
+    </div>
+  <canvas class="game-container" id="game" width="600" height="800" style="border:1px solid #000000;"></canvas>
+    <div class="game-container game-text-display" id="game-end">
+      <p class="game-text">
+        Game Over!
+      </p>
+    </div>
   </div>
-
-
   <script src="main.bundle.js"></script>
 </body>
 </html>
