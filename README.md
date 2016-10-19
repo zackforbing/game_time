@@ -52,4 +52,4 @@ npm test
 
 ## Contributers
 
-[Zach Forbing](https://github.com/zackforbing) & [Yoseph Anderson](https://github.com/YoYo2Code)
+[Zack Forbing](https://github.com/zackforbing) & [Yoseph Anderson](https://github.com/YoYo2Code)
