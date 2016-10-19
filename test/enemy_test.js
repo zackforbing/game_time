@@ -57,7 +57,7 @@ describe('Enemy', function() {
       assert.equal(enemy.speedY, 0.3);
     })
 
-    it.skip('has a location', function(){
+    it('has a location', function(){
       var canvas = stub();
       var context = stub().of("fillRect");
       canvas.width  = 800;
