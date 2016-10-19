@@ -1,7 +1,6 @@
 .greeting {
   background-color: red;
   position: fixed;
-
   height: 100%;
   width: 100%;
 }
@@ -21,15 +20,21 @@
 .game-text-display {
   width: 600px;
   height: 800px;
-  background-color: red;
+  background-color: rgb(0, 220, 228);
   text-align: center;
 }
 
 #game-start {
   padding: 20px;
-  font-style: 
+  font-size: 50px;
+
 }
 
 #game-end {
   padding: 20px;
+}
+
+.game-text {
+  color: white;
+  margin-top: 300px;
 }
