@@ -25,6 +25,7 @@
 }
 
 #game-start {
+  position: relative;
   padding: 20px;
   font-size: 50px;
 
@@ -37,4 +38,8 @@
 .game-text {
   color: white;
   margin-top: 300px;
+}
+
+#game {
+  position: relative;
 }
