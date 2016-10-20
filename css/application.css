@@ -35,6 +35,18 @@
   padding: 20px;
 }
 
+#score {
+  text-align: center;
+  font-size: 30px;
+}
+
+#score-text {
+  position: absolute;
+  padding-top: 10px;
+  font-size: 30px;
+  margin-left: 500px;
+}
+
 .game-text {
   color: white;
   margin-top: 300px;
