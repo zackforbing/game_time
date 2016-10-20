@@ -10423,7 +10423,7 @@
 
 	    if (self.bullets.length !== self.bullets.filter(notColliding).length) {
 	      ++this.score;
-	      console.log("Killed an enemy");
+	      self.increaseScore();
 	    }
 
 	    self.enemies = self.enemies.filter(notColliding);
@@ -10437,9 +10437,8 @@
 	  }
 
 	  increaseScore() {
-	    // let this.score = document.getElementById("score");
-
-	    // score.text() = this.score;
+	    let score = document.getElementById("score-text");
+	    score.innerHTML = this.score;
 	  }
 	}
 
