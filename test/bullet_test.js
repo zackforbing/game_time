@@ -4,6 +4,7 @@ const assert = chai.assert;
 const stub = require('./support/stub');
 
 const Bullet = require('../lib/bullet');
+const Game   = require('../lib/game');
 
 describe('Bullet', function(){
   context('default attributes', function(){
@@ -51,7 +52,7 @@ describe('Bullet', function(){
 
       let bullet = new Bullet(game);
 
-      assert.equal(bullet.center.x, 590);
+      assert.equal(bullet.center.x, 390);
 
     });
 
@@ -65,7 +66,7 @@ describe('Bullet', function(){
 
       let bullet = new Bullet(game);
 
-      assert.equal(bullet.center.x, 785);
+      assert.equal(bullet.center.y, 455);
     });
 
     it('has a speed', function(){

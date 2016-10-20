@@ -54,7 +54,7 @@ describe('Enemy', function() {
       var game = new Game({canvas: canvas, context: context});
       var enemy = new Enemy(game, 'left');
 
-      assert.equal(enemy.speed, 0.3);
+      assert.equal(enemy.speed, 2);
     });
 
     it('has a center', function(){
@@ -66,7 +66,7 @@ describe('Enemy', function() {
       var game = new Game({canvas: canvas, context: context});
       var enemy = new Enemy(game, 'left');
 
-      assert.equal(enemy.location.x, 500);
+      assert.equal(enemy.center.x, -30);
     });
 
     it('has a class of enemy', function(){
@@ -78,7 +78,7 @@ describe('Enemy', function() {
       var game = new Game({canvas: canvas, context: context});
       var enemy = new Enemy(game, 'left');
 
-      assert.equal(enemy.location.x, 500);
+      assert.equal(enemy.class, 'enemy');
     });
 
     it('has a default of alive', function(){
