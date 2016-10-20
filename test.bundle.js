@@ -190,7 +190,7 @@
 
 	    if (self.bullets.length !== self.bullets.filter(notColliding).length) {
 	      ++this.score;
-	      console.log("Killed an enemy");
+	      self.increaseScore();
 	    }
 
 	    self.enemies = self.enemies.filter(notColliding);
@@ -204,9 +204,8 @@
 	  }
 
 	  increaseScore() {
-	    // let this.score = document.getElementById("score");
-
-	    // score.text() = this.score;
+	    let score = document.getElementById("score-text");
+	    score.innerHTML = this.score;
 	  }
 	}
 
@@ -424,8 +423,8 @@
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
-		module.hot.accept("!!/Users/zackforbing/turing/4module/game_time/node_modules/mocha-loader/node_modules/css-loader/index.js!/Users/zackforbing/turing/4module/game_time/node_modules/mocha/mocha.css", function() {
-			var newContent = require("!!/Users/zackforbing/turing/4module/game_time/node_modules/mocha-loader/node_modules/css-loader/index.js!/Users/zackforbing/turing/4module/game_time/node_modules/mocha/mocha.css");
+		module.hot.accept("!!/Users/TuringJourney/Desktop/turing/mod_4/projects/game_time/node_modules/mocha-loader/node_modules/css-loader/index.js!/Users/TuringJourney/Desktop/turing/mod_4/projects/game_time/node_modules/mocha/mocha.css", function() {
+			var newContent = require("!!/Users/TuringJourney/Desktop/turing/mod_4/projects/game_time/node_modules/mocha-loader/node_modules/css-loader/index.js!/Users/TuringJourney/Desktop/turing/mod_4/projects/game_time/node_modules/mocha/mocha.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
