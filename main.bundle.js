@@ -10579,7 +10579,6 @@
 	  constructor(game) {
 	    this.game = game;
 	    this.level = 1;
-	    this.pointValue = this.level * 10;
 	    this.size = { x: this.game.canvas.width, y: 10 };
 	    this.center = { x: this.game.center.x, y: -this.size.y };
 	  }
@@ -10596,9 +10595,10 @@
 	    if (this.game.player.advancement >= 1500) {
 	      this.game.player.advancement = 0;
 	      this.game.difficulty -= 0.02;
-	      this.level += 1;
-	      this.center.y = -this.size.y;
+	      this.pointValue = 10 * this.level;
 	      this.game.score += this.pointValue;
+	      ++this.level;
+	      this.center.y = -this.size.y;
 	      this.game.increaseScore();
 	    }
 	  }
