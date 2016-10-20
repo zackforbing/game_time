@@ -27,7 +27,7 @@ describe('Bullet', function(){
 
       let bullet = new Bullet(game);
 
-      assert.equal(bullet.size.x, 20)
+      assert.equal(bullet.size.x, 20);
     });
 
     it('has a size y', function(){
@@ -38,7 +38,7 @@ describe('Bullet', function(){
 
       let bullet = new Bullet(game);
 
-      assert.equal(bullet.size.y, 30)
+      assert.equal(bullet.size.y, 30);
     });
 
     it('has a center x', function(){
@@ -100,7 +100,7 @@ describe('Bullet', function(){
 
       assert.equal(bullet.alive, true);
     });
-  })
+  });
 
   context('bullet functions', function(){
     it('has a function that changes alive to false', function(){
@@ -116,6 +116,6 @@ describe('Bullet', function(){
       bullet.clear();
 
       assert.equal(bullet.alive, false);
-    })
-  })
-})
+    });
+  });
+});

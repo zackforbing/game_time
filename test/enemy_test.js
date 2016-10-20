@@ -1,7 +1,6 @@
 const chai     = require('chai');
 const assert   = chai.assert;
 const Enemy    = require('../lib/enemy');
-const Bullet   = require('../lib/bullet');
 const Game     = require('../lib/game');
 const stub     = require('./support/stub');
 
@@ -109,6 +108,6 @@ describe('Enemy', function() {
       enemy.clear();
 
       assert.equal(enemy.alive, false);
-    })
-  })
+    });
+  });
 });

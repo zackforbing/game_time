@@ -73,7 +73,6 @@ describe('GameLoop', function() {
       var game = new Game({ canvas: canvas, context: context });
       assert.instanceOf(game.enemies, []);
     });
-  });
 
     it('has bullets', function(){
       var canvas = stub();
@@ -197,4 +196,3 @@ describe('GameLoop', function() {
       assert.instanceOf(game.imageRepository, Hurdle);
     });
   });
-});

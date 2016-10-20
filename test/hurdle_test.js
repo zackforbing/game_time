@@ -1,6 +1,6 @@
 const chai = require('chai');
 const assert = chai.assert;
-const Hurdle = require('../lib/hundle');
+const Hurdle = require('../lib/hurdle');
 const stub = require('./support/stub');
 
 describe('Hundle', function(){
@@ -37,7 +37,7 @@ describe('Hundle', function(){
 
       assert.equal(hurdle.pointValue, 10);
 
-      hurdle.level = 2
+      hurdle.level = 2;
 
       assert.equal(hurdle.pointValue, 20);
     });
