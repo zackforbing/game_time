@@ -40,6 +40,14 @@
   margin-top: 300px;
 }
 
+#score {
+  /*position: absolute;*/
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  top: 500px;
+}
+
 #game {
   position: relative;
 }
