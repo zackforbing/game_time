@@ -7,7 +7,7 @@ const Game   = require('../lib/game');
 describe('Player', function() {
   context('with default attributes', function() {
 
-    it('should be instantiated', function() {
+    it('has a game', function() {
       var canvas = stub();
       var context = stub().of("fillRect");
       canvas.width  = 800;
@@ -17,7 +17,20 @@ describe('Player', function() {
 
       let player = new Player(game);
 
-      assert.instanceOf(player, Player);
+      assert.equal(player.game, game);
+    });
+
+    it('should have a size', function() {
+      var canvas = stub();
+      var context = stub().of("fillRect");
+      canvas.width  = 800;
+      canvas.height = 600;
+
+      var game = new Game({canvas: canvas, context: context});
+      let player = new Player(game);
+
+      assert.equal(player.size.x, 50);
+      assert.equal(player.size.y, 50);
     });
 
     it('should have an x-coordinate', function() {
@@ -44,7 +57,7 @@ describe('Player', function() {
       assert.equal(player.center.y, 400);
     });
 
-    it('should have a height', function() {
+    it('should have a class of player', function() {
       var canvas = stub();
       var context = stub().of("fillRect");
       canvas.width  = 800;
@@ -53,10 +66,10 @@ describe('Player', function() {
       var game = new Game({canvas: canvas, context: context});
       let player = new Player(game);
 
-      assert.equal(player.size.x, 50);
+      assert.equal(player.class, 'player');
     });
 
-    it('should have a width', function() {
+    it('defaults alive as true', function() {
       var canvas = stub();
       var context = stub().of("fillRect");
       canvas.width  = 800;
@@ -65,7 +78,32 @@ describe('Player', function() {
       var game = new Game({canvas: canvas, context: context});
       let player = new Player(game);
 
-      assert.equal(player.size.y, 50);
+      assert.equal(player.alive, true);
+    });
+
+    it('has an advancement default of 0', function() {
+      var canvas = stub();
+      var context = stub().of("fillRect");
+      canvas.width  = 800;
+      canvas.height = 600;
+
+      var game = new Game({canvas: canvas, context: context});
+      let player = new Player(game);
+
+      assert.equal(player.advancement, 0);
+    });
+
+    it('has a hitbox', function() {
+      var canvas = stub();
+      var context = stub().of("fillRect");
+      canvas.width  = 800;
+      canvas.height = 600;
+
+      var game = new Game({canvas: canvas, context: context});
+      let player = new Player(game);
+
+      assert.equal(player.hitbox.x, 40);
+      assert.equal(player.hitbox.x, 40);
     });
   });
 });
