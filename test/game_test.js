@@ -1,7 +1,7 @@
 const chai     = require('chai');
 const assert   = chai.assert;
-const Game     = require('../lib/game')
-const stub     = require('./support/stub')
+const Game     = require('../lib/game');
+const stub     = require('./support/stub');
 
 describe('GameLoop', function() {
   context('with default attributes', function() {

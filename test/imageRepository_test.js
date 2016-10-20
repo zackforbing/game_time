@@ -1,7 +1,7 @@
 const chai = require('chai');
 const assert = chai.assert;
 
-const ImageRepository = require('../lib/imageRepository')
+const ImageRepository = require('../lib/imageRepository');
 
 describe('Image Repository', function(){
   context('default attributes', function (){

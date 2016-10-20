@@ -18,7 +18,7 @@ describe('Enemy', function() {
       var enemy = new Enemy(game, 'left');
 
       assert.equal(enemy.area, 'left');
-    })
+    });
 
     it('has a game', function(){
       var canvas = stub();
@@ -30,7 +30,7 @@ describe('Enemy', function() {
       var enemy = new Enemy(game, 'left');
 
       assert.equal(enemy.game, game);
-    })
+    });
 
     it('has a size', function(){
       var canvas = stub();
@@ -43,7 +43,7 @@ describe('Enemy', function() {
 
       assert.equal(enemy.size.x, 30);
       assert.equal(enemy.size.y, 30);
-    })
+    });
 
     it('has a speedY of 0.3', function(){
       var canvas = stub();
@@ -55,7 +55,7 @@ describe('Enemy', function() {
       var enemy = new Enemy(game, 'left');
 
       assert.equal(enemy.speedY, 0.3);
-    })
+    });
 
     it('has a location', function(){
       var canvas = stub();
@@ -66,7 +66,7 @@ describe('Enemy', function() {
       var game = new Game({canvas: canvas, context: context});
       var enemy = new Enemy(game, 'left');
 
-      assert(enemy.location.x, -30 )
+      assert(enemy.location.x, -30);
     });
   });
 });
