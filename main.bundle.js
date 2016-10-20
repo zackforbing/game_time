@@ -49,16 +49,19 @@
 
 	var canvas = document.getElementById('game');
 	var context = canvas.getContext('2d');
-
 	var game = new Game({ canvas: canvas, context: context });
 
 	$(document).ready(function () {
 	  var startingScreen = $('#game-start');
 	  var gameWindow = $("#game").hide();
-	  var endingScreen = $("#game-end").hide();
+	  $("#game-end").hide();
+	  localStorage.getItem('userScore');
+	  game.highScores();
 
 	  $(document).on('keyup', function (key) {
 	    if (key.which === 83) {
+	      var game = new Game({ canvas: canvas, context: context });
+	      game.over = false;
 	      startingScreen.hide();
 	      gameWindow.show();
 	      game.addKeyListeners.call(game);
@@ -10297,6 +10300,7 @@
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
+	var $ = __webpack_require__(1);
 	var Player = __webpack_require__(3);
 	var Enemy = __webpack_require__(4);
 	var Bullet = __webpack_require__(5);
@@ -10322,6 +10326,7 @@
 	    this.gameLoop = this.gameLoop.bind(this);
 	    this.hurdle = new Hurdle(this);
 	    this.imageRepository = new ImageRepository();
+	    this.over = false;
 	  }
 
 	  loop() {
@@ -10330,21 +10335,28 @@
 	  }
 
 	  gameLoop() {
-	    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-	    this.bodies = this.enemies.concat(this.bullets).concat(this.player);
-	    this.update();
-	    this.generateEnemy();
-	    this.clearOffscreenEnemies();
-	    this.hurdle.isHurdleInSight();
-	    this.hurdle.isHurdleReached();
-	    this.draw(this.context);
-	    this.offsetX = 0;
-	    this.offsetY = 0;
-	    requestAnimationFrame(this.gameLoop);
+	    if (this.over === false) {
+	      this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+	      this.bodies = this.enemies.concat(this.bullets).concat(this.player);
+	      this.update();
+	      this.generateEnemy();
+	      this.clearOffscreenEnemies();
+	      this.hurdle.isHurdleInSight();
+	      this.hurdle.isHurdleReached();
+	      this.draw(this.context);
+	      this.offsetX = 0;
+	      this.offsetY = 0;
+	      this.isPlayerDestroyed();
+	      if (this.over === false) {
+	        requestAnimationFrame(this.gameLoop);
+	      } else {
+	        this.gameOver();
+	      }
+	    }
 	  }
 
 	  update() {
-	    this.checkBulletCollisions();
+	    this.checkCollisions();
 	    this.bodies.forEach(body => {
 	      body.update();
 	    });
@@ -10406,15 +10418,16 @@
 	  }
 
 	  isColliding(body1, body2) {
-	    if (body2.class === 'player') {
+	    if (body1.class === 'enemy' && body2.class === 'player') {
 	      return !(body1.center.x + body1.size.x / 2 <= body2.center.x - body2.hitbox.x / 2 || body1.center.y + body1.size.y / 2 <= body2.center.y - body2.hitbox.y / 2 || body1.center.x - body1.size.x / 2 >= body2.center.x + body2.hitbox.x / 2 || body1.center.y - body1.size.y / 2 >= body2.center.y + body2.hitbox.y / 2);
 	    } else {
 	      return !(body1.class === body2.class || body1.center.x + body1.size.x / 2 <= body2.center.x - body2.size.x / 2 || body1.center.y + body1.size.y / 2 <= body2.center.y - body2.size.y / 2 || body1.center.x - body1.size.x / 2 >= body2.center.x + body2.size.x / 2 || body1.center.y - body1.size.y / 2 >= body2.center.y + body2.size.y / 2);
 	    }
 	  }
 
-	  checkBulletCollisions() {
+	  checkCollisions() {
 	    var self = this;
+
 	    function notColliding(body1) {
 	      return self.bodies.filter(body2 => {
 	        return self.isColliding(body1, body2);
@@ -10428,6 +10441,13 @@
 
 	    self.enemies = self.enemies.filter(notColliding);
 	    self.bullets = self.bullets.filter(notColliding);
+	    self.bodies = self.bodies.filter(notColliding);
+	  }
+
+	  isPlayerDestroyed() {
+	    if (this.bodies.includes(this.player) === false) {
+	      this.over = true;
+	    }
 	  }
 
 	  clearOffscreenEnemies() {
@@ -10439,6 +10459,39 @@
 	  increaseScore() {
 	    let score = document.getElementById("score-text");
 	    score.innerHTML = this.score;
+	  }
+
+	  gameOver() {
+	    $("#game").hide();
+	    $("#game-end").show();
+	    this.highScores();
+	  }
+
+	  highScores() {
+	    let localScores = JSON.parse(localStorage.getItem('TimeFreezeScores'));
+	    var score = JSON.parse($("#score-text").text());
+
+	    if (localScores === null) {
+	      localScores = [];
+	    } else if (localScores.length > 0) {
+	      localScores.push(score);
+	      localScores = localScores.sort(function compare(a, b) {
+	        if (a < b) {
+	          return -1;
+	        }
+	        if (a > b) {
+	          return 1;
+	        }
+	        return 0;
+	      }).reverse().slice(0, 5);
+	    }
+
+	    localStorage.setItem('TimeFreezeScores', JSON.stringify(localScores));
+	    $('#high-scores').text("");
+	    for (var i = 0; i < localScores.length; i++) {
+
+	      $('#high-scores').append(`<li>${ i + 1 }. ${ localScores[i] }</li>`);
+	    }
 	  }
 	}
 
@@ -10548,7 +10601,6 @@
 			this.speed = 15;
 			this.class = 'bullet';
 			this.alive = true;
-			this.class = 'bullet';
 		}
 
 		draw() {
@@ -10591,7 +10643,6 @@
 	  }
 
 	  isHurdleReached() {
-
 	    if (this.game.player.advancement >= 1500) {
 	      this.game.player.advancement = 0;
 	      this.game.difficulty -= 0.02;

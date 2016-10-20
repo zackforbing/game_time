@@ -5,6 +5,7 @@ const stub     = require('./support/stub');
 const Game     = require('../lib/game');
 const Player   = require('../lib/player');
 const Hurdle   = require('../lib/hurdle');
+
 const ImageRepository = require('../lib/imageRepository');
 
 describe('GameLoop', function() {
@@ -72,6 +73,7 @@ describe('GameLoop', function() {
       var context = stub().of("fillRect");
 
       var game = new Game({ canvas: canvas, context: context });
+
       assert.equal(game.enemies, []);
     });
 
@@ -83,6 +85,7 @@ describe('GameLoop', function() {
       var context = stub().of("fillRect");
 
       var game = new Game({ canvas: canvas, context: context });
+
       assert.equal(game.bullets, []);
     });
 
@@ -94,6 +97,7 @@ describe('GameLoop', function() {
       var context = stub().of("fillRect");
 
       var game = new Game({ canvas: canvas, context: context });
+
       assert.equal(game.bullets, []);
     });
 
@@ -105,6 +109,7 @@ describe('GameLoop', function() {
       var context = stub().of("fillRect");
 
       var game = new Game({ canvas: canvas, context: context });
+
       assert.equal(game.offsetX, 0);
     });
 
@@ -116,6 +121,7 @@ describe('GameLoop', function() {
       var context = stub().of("fillRect");
 
       var game = new Game({ canvas: canvas, context: context });
+
       assert.equal(game.offsetY, 0);
     });
 
@@ -127,6 +133,7 @@ describe('GameLoop', function() {
       var context = stub().of("fillRect");
 
       var game = new Game({ canvas: canvas, context: context });
+
       assert.equal(game.speed, 10);
     });
 
@@ -138,6 +145,7 @@ describe('GameLoop', function() {
       var context = stub().of("fillRect");
 
       var game = new Game({ canvas: canvas, context: context });
+
       assert.equal(game.difficulty, 0.95);
     });
 
@@ -149,6 +157,7 @@ describe('GameLoop', function() {
       var context = stub().of("fillRect");
 
       var game = new Game({ canvas: canvas, context: context });
+
       assert.equal(game.fireRate, 150);
     });
 
@@ -160,6 +169,7 @@ describe('GameLoop', function() {
       var context = stub().of("fillRect");
 
       var game = new Game({ canvas: canvas, context: context });
+
       assert.equal(game.score, 0);
     });
 
@@ -171,6 +181,7 @@ describe('GameLoop', function() {
       var context = stub().of("fillRect");
 
       var game = new Game({ canvas: canvas, context: context });
+
       assert.equal(game.gameLoop, 0);
     });
 
@@ -193,6 +204,7 @@ describe('GameLoop', function() {
       var context = stub().of("fillRect");
 
       var game = new Game({ canvas: canvas, context: context });
+
       assert.instanceOf(game.imageRepository, ImageRepository);
     });
   });

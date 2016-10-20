@@ -2,6 +2,7 @@ const chai = require('chai');
 const assert = chai.assert;
 const Hurdle = require('../lib/hurdle');
 const stub = require('./support/stub');
+
 const Game = require('../lib/game');
 
 describe('Hurdle', function(){
