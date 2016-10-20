@@ -45,7 +45,7 @@ describe('Enemy', function() {
       assert.equal(enemy.size.y, 30);
     });
 
-    it('has a speedY of 2', function(){
+    it('has a speed of 2', function(){
       var canvas = stub();
       var context = stub().of("fillRect");
       canvas.width  = 800;
