@@ -54,7 +54,7 @@ describe('Player', function() {
       var game = new Game({canvas: canvas, context: context});
       let player = new Player(game);
 
-      assert.equal(player.center.y, 400);
+      assert.equal(player.center.y, 500);
     });
 
     it('should have a class of player', function() {
