@@ -4,6 +4,7 @@ const assert = chai.assert;
 const stub = require('./support/stub');
 
 const Bullet = require('../lib/bullet');
+const Game = require('../lib/game');
 
 describe('Bullet', function(){
   context('default attributes', function(){
